@@ -22,3 +22,5 @@ const p = new Parser(':');
 p.parse(phrase);
 console.log(p.str);
 //8790 8987 7777 9007
+
+//test push
