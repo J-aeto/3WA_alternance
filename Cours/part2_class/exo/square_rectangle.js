@@ -39,8 +39,8 @@ class square extends rectangle {
 
 const mySquare = new square(5, 5);
 
-console.log(mySquare.w);
-console.log(mySquare.h);
 const mySquareArea = mySquare.setArea();
 const mySquarePerimeter = mySquare.setPerimeter();
+console.log(mySquare.w);
+console.log(mySquare.h);
 console.log(mySquareArea, mySquarePerimeter)
