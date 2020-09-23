@@ -13,8 +13,7 @@ class Parser {
     }
 
     parse(string) {
-        this._str = string.split(this._delimiter).filter(Number);
-        this._str = this._str.map(s => s.trim())
+        this._str = string.split(this._delimiter).filter(Number).map(s => s.trim());
     }
 }
 
