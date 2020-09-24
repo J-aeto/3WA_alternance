@@ -30,15 +30,13 @@ class players {
         this.shot = newShot
     }
 
-    hit() {
-        this.calculShot();
-        this.life -= this.shot
+    hit(atkShot) {
+        this.life -= atkShot
     }
 
-    calculShot(atkForce) {
-        console.log(atkForce)
+    calculShot() {
         let usefullMethod = new usefull;
-        this.shot = usefullMethod.getRandomIntInclusive((atkForce / .5), (atkForce * .5))
+        this.shot =  usefullMethod.getRandomIntInclusive((this.force / .5), (this.force * .5))
     }
 
 }
@@ -58,32 +56,49 @@ class knight extends players {
 class game {
 
     constructor() {
-        this.gameState = "progress";
+        this.gameState = [];
+        this.turn = 1;
+        this.initiative = 0;
     }
 
-    run() {
+    run(dragonName, knightName) {
         let init = new initGame;
         init = init.init();
         let {dragonStats, knightStats} =  { ...init};
-        let dragonPlayer = new dragon(dragonStats, "boby")
-        let knightPlayer = new knight(knightStats, "bobySlayer")
-        console.log(`Match Started : ${knightPlayer.n}(knight) -${knightPlayer.hp} HP- VS -${dragonPlayer.hp} HP- ${dragonPlayer.n}(dragon) !`)
-        console.log("Lets Fight!")
+        let dragonPlayer = new dragon(dragonStats, dragonName)
+        let knightPlayer = new knight(knightStats, knightName)
+        this.gameState.push(`Match Started : ${knightPlayer.n}(knight) -${knightPlayer.hp} HP- VS -${dragonPlayer.hp} HP- ${dragonPlayer.n}(dragon) !`)
+        this.gameState.push("Lets Fight!")
         this.gameLoop(dragonPlayer, knightPlayer);
     }
 
     gameLoop(dragon, knight){
-        if(dragon.hp <= 0 ||knight.hp <= 0){
-            dragon.hp <= 0 ? console.log("knight win !") : console.log("dragon win !");
+        if(dragon.hp <= 0 || knight.hp <= 0){
+            dragon.hp <= 0 ? this.gameState.push(`*********** ${knight.n} the Knight win ! ***********`) : this.gameState.push(`*********** ${dragon.n} the Dragon win ! ***********`);
+            this.turn = 1;
+            console.log(this.gameState)
             return;
         }
-        dragon.hit(knight.force)
-        knight.hit(dragon.force)
-        console.log(`Knight deal ${knight.shot} dmg to Dragon, Dragon life remaining ${dragon.hp <= 0 ? "0" : dragon.hp}`)
-        console.log(`Dragon deal ${dragon.shot} dmg to Knight, Knight life remaining ${knight.hp <= 0 ? "0" : knight.hp}`)
-        dragon.s = 0;
-        knight.s = 0;
-        this.gameLoop(dragon, knight)
+        const usefullMethod = new usefull;
+        this.initiative = usefullMethod.getRandomIntInclusive(0, 1);
+
+        this.gameState.push(`*********** TURN N° ${this.turn} ***********`)
+        if (this.initiative == 0) {
+            this.gameStatement(dragon, knight);
+            this.gameLoop(dragon, knight);
+        } else {
+            this.gameStatement(knight, dragon);
+            this.gameLoop(dragon, knight);
+        }
+    }
+
+    gameStatement(playerAtk, playerDef) {
+        playerAtk.calculShot()
+        playerDef.hit(playerAtk.s)
+        this.gameState.push(`${playerAtk.n} have initiative and deal ${playerAtk.s} dmg to ${playerDef.n}, ${playerDef.n} life remaining ${playerDef.hp <= 0 ? "0" : playerDef.hp}`)
+        playerAtk.s = 0;
+        playerDef.s = 0;
+        this.turn++;     
     }
 }
 
@@ -111,4 +126,4 @@ class usefull {
 }
 
 const startGame = new game;
-startGame.run();
+startGame.run("Boby the dragon", "BobySlayer");
