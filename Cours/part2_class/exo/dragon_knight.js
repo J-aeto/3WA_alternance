@@ -56,7 +56,7 @@ class knight extends players {
 class game {
 
     constructor() {
-        this.gameState = [];
+        this.gameLogs = [];
         this.turn = 1;
         this.initiative = 0;
     }
@@ -67,22 +67,22 @@ class game {
         let {dragonStats, knightStats} =  { ...init};
         let dragonPlayer = new dragon(dragonStats, dragonName)
         let knightPlayer = new knight(knightStats, knightName)
-        this.gameState.push(`Match Started : ${knightPlayer.n}(knight) -${knightPlayer.hp} HP- VS -${dragonPlayer.hp} HP- ${dragonPlayer.n}(dragon) !`)
-        this.gameState.push("Lets Fight!")
+        this.gameLogs.push(`Match Started : ${knightPlayer.n}(knight) -${knightPlayer.hp} HP- VS -${dragonPlayer.hp} HP- ${dragonPlayer.n}(dragon) !`)
+        this.gameLogs.push("Lets Fight!")
         this.gameLoop(dragonPlayer, knightPlayer);
     }
 
     gameLoop(dragon, knight){
         if(dragon.hp <= 0 || knight.hp <= 0){
-            dragon.hp <= 0 ? this.gameState.push(`*********** ${knight.n} the Knight win ! ***********`) : this.gameState.push(`*********** ${dragon.n} the Dragon win ! ***********`);
+            dragon.hp <= 0 ? this.gameLogs.push(`*********** ${knight.n} the Knight win ! ***********`) : this.gameLogs.push(`*********** ${dragon.n} the Dragon win ! ***********`);
             this.turn = 1;
-            console.log(this.gameState)
+            console.log(this.gameLogs)
             return;
         }
         const usefullMethod = new usefull;
         this.initiative = usefullMethod.getRandomIntInclusive(0, 1);
 
-        this.gameState.push(`*********** TURN N° ${this.turn} ***********`)
+        this.gameLogs.push(`*********** TURN N° ${this.turn} ***********`)
         if (this.initiative == 0) {
             this.gameStatement(dragon, knight);
             this.gameLoop(dragon, knight);
@@ -95,7 +95,7 @@ class game {
     gameStatement(playerAtk, playerDef) {
         playerAtk.calculShot()
         playerDef.hit(playerAtk.s)
-        this.gameState.push(`${playerAtk.n} have initiative and deal ${playerAtk.s} dmg to ${playerDef.n}, ${playerDef.n} life remaining ${playerDef.hp <= 0 ? "0" : playerDef.hp}`)
+        this.gameLogs.push(`${playerAtk.n} have initiative and deal ${playerAtk.s} dmg to ${playerDef.n}, ${playerDef.n} life remaining ${playerDef.hp <= 0 ? "0" : playerDef.hp}`)
         playerAtk.s = 0;
         playerDef.s = 0;
         this.turn++;     
