@@ -5,5 +5,5 @@ const add = (number, callback, error) => {
     }, 1000);
 }
 
-const test = add(1, (number) => console.log(number + 2), () => console.log("not a number"))
+const test = add("test", (number) => console.log(number + 2), () => { throw new Error ('Bad number ...') })
 // const test = add(1, (number, error) => isNaN(number) ? error() : console.log(number + 2))
