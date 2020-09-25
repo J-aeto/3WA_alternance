@@ -16,8 +16,7 @@ Promise.all([readJsonFile('./dragons.json'), readJsonFile('./relationships.json'
 .then(data => {
     const { dragons } = data[0];
     const { relationships } = data[1];
-
-    console.log(dragons, relationships)
+    
     let relations = new Map();
     for(const {id, name} of dragons) {
         const idDragon = id
