@@ -20,7 +20,7 @@ Promise.all([readJsonFile('./dragons.json'), readJsonFile('./relationships.json'
     let relations = new Map();
     for(const {id, name} of dragons) {
         const idDragon = id
-        for(const {id, relation} of relationships) { 
+        for(const {id, relation} of relationships) {
             if (idDragon === id) {
                 relations.set(name, relation);
             }
