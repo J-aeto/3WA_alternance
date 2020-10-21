@@ -3,19 +3,41 @@
 namespace Twitter\Controller;
 
 use Twitter\Http\Request;
+use Twitter\Http\Response;
+use Twitter\Model\TweetModel;
 use Twitter\View\Renderer;
 
 class TweetController
 {
-    public function createTweet()
-    {
-        $request = new Request;
-        $renderer = new Renderer;
+    protected Request $request;
+    protected Renderer $renderer;
+    protected TweetModel $model;
 
-        if ($request->isMethod('POST')) {
-            var_dump("Enregistrement du tweet");
-            return;
+    public function __construct(Request $request, Renderer $renderer, TweetModel $model)
+    {
+        $this->request = $request;
+        $this->renderer = $renderer;
+        $this->model = $model;
+    }
+
+    public function createTweet(): Response
+    {
+        if ($this->request->isMethod('POST')) {
+            $this->model->save("jason", $this->request->get('content'));
+
+            $response = new Response;
+            //header('Location: /');
+            $response->setHeader('Location', '/');
+            //http_response_code(302);
+            $response->setStatusCode(302);
+
+            return $response;
         }
-        $renderer->display("home");
+        $html = $this->renderer->display("home");
+        $response = new Response;
+        $response->setStatusCode(200);
+        $response->setContent($html);
+
+        return $response;
     }
 }
