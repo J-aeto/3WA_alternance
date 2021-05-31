@@ -1,0 +1,22 @@
+Il s'agit de réaliser un ensemble de composants React, et de les agencer de telle sorte à obtenir un plateau
+de jeu, permettant de faire déplacer un personnage/élément au sein d'une grille de taille 12x8, en clickant sur
+des boutons indiquant le sens et le type de déplacement.
+
+Partie UI:
+1- Créer un composant Cell, représentant une case du plateau.
+Ce serait intéressant qu'il prenne en argument une prop indiquant la présence ou pas d'un personnage.
+2- Créer un composant bouton adapté, pouvant afficher une flêche (si pas la flemme) ou une indication textuelle.
+3- Créer deux composant, un pour chaque groupe de boutons.
+4- Créer un array d'un format adéquat pour pouvoir générer la grille en mappant dessus.
+5- Agencer le tout dans un paneau (composant contenant le tout)
+
+rq: ne pas oublier les styles, ni le layout.
+
+Partie state/fonctionalité/dynamicité:
+Appliquer la recette générale vue en cours pour la mise en place d'un contexte en lien avec un reducer pour
+gérer un état composite.
+
+Bien réfléchir au format du state, et de commment il se répercutera sur ce qui sera affiché.
+Essayer de factoriser mais tout en gardant en tête la lisibilité, et la possibilité d'évolution des fonctionalités.
+
+IMPORTANT: revenir vers le formateur si on bloque, ne pas hésiter à poser des question si on a oublié comment faire quelque chose.

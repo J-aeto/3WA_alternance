@@ -1,0 +1,13 @@
+
+//lancer un serveur web:
+php -S localhost:3000
+
+//lancer test unitaire:
+vendor/bin/phpunit *fichier a tester* --colors
+//lancer une batterie test
+vendor/bin/phpunit-watcher watch tests --colors=always
+
+//générer l'autoload
+composer dump-autoload
+
+//

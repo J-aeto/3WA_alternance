@@ -1,0 +1,38 @@
+Contrôle de connaissance
+Nom et prénom: Barbesange Jason
+
+1- À quoi sert React? (une phrase ou deux)
+React est une bibliotheque javascript, qui permet de facilitité la création d'application web
+grâce a des composants et des interfaces réutilisable, en permettant de changer des données plus facilement
+
+2- Quelle instruction utilise-t-on pour créer une application React?
+npx create-react-app *le nom de l'application*
+
+3- Citer deux nouveautés ES5/ES6:
+    - Les fonctions fléchée
+    - La mise en place de const et let a la place de var
+
+4- À quoi sert le JSX?
+Le JSX sert a rassemblé le balisage et la logique dans un même composant afin d'éviter d'avoir plusieurs fichier
+
+5- À quoi servent les props?
+Les props sont des objets d'un composant, ils sont immuable et permettent d'accéder a des propiétés 
+
+6- Quels sont les composants de base à utiliser pour le routing? De quelle librairie viennent-t-ils?
+ils viennent de la librairie "react-router", et les composant de base sont Route, Switch, Redirect, Link, browserHistory
+
+7- Par quel moyen les parents passent des données aux enfants? Et les enfants aux parents?
+les composant parents passent des données aux enfants en transmettant une fonction en tant que props 
+et les composant enfant appelle cette fonction
+
+8- Qu'est ce que le two way binding?
+c'est le fait qu'une valeur dans le DOM soit toujour cohérente avec un state et permet d'automatiser se que voit l'utilisateur
+
+9- Définir simplement un composant react:
+un composant est une fonction ou une classe qui définie une fonctionnalité dans une application web
+
+10- à quoi sert useParams?
+il permet d'accéder au paramètre dans une url sans utiliser l'objet props
+
+11- Qu'est ce qu'un effet de bord?
+C'est une opération qui change l'état de quelque chose qui n'est pas dans sa portée

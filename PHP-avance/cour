@@ -1,0 +1,164 @@
+Qu'est-ce la Programmation orientée objets (POO) ?
+C'est un paradigme, c'est-à-dire une façon d'organiser son code (v. paradigme fonctionnel en JS) dans lesquels les logiques (comportements) et les informations (données) sont organisées 
+sous la forme d'objets qui interagissent entre eux.   
+Quels sont les avantages de la POO ? 
+- Une organisation du code : les classes nous permettent de représenter des concepts sous la forme d'un ensemble de donnés (propriétés) et de comportements (méthodes). 
+  L'utilisation des namespace : on peut utiliser deux classes de même nom dans plusieurs dossiers différents 
+- La sécurité du code : l'encapsulation nous permet de définir l'accessibilité des données ou des comportements d'une classe (ou objets issus d'une classe)
+  Une sécurité du code implique la qualité du code 
+  v. compte youtube de Lior Chamla
+  v. typer les données pour limiter les bugs (php 7.4)
+  v. accesseurs (getter) et setters
+  v. les exceptions : déclencher quelque chose pour prévenir une erreur : throw new Exception();
+  - Est "public" ce qui est accessible depuis l'extérieur de l'objet 
+  - Est "private" ce qui est accessible uniquement dans les fonctions de la classe elle-même 
+  - Est "protected" ce qui est accessible dans les fonctions de la classe elle-même et ses enfants 
+- Le code est réutilisé : grâce à l'héritage, une classe peut bénéficier des propriétés et méthodes d'une autre classe. 
+  On a le droit de redéfinir un comportement dans la classe enfant et d'ajouter des comportements (spécialisation ou extension).
+  v. La distiction entre composition (bénéficier des méthodes, sauf privées, d'une classe sans en hériter) et héritage
+  v. l'abstraction (v. l'image du lecteur - extends) et une interface (implements) ;
+Qu'est-ce une librairie ?
+C'est un ensemble de fonctions ou de classes qui ont un objectif défini et qui peut être utilisé de projets en projet.
+v. La notion de dépendance : c'est une librairie qui appelle un code d'un autre code  dont il dépend pour fonctioner. 
+v. Composer pour PHP : installe, dégrade, met à jour les dépendances 
+v. autoload et ses fonctionnalités 
+Qu'est-ce un framework ? 
+C'est un ensemble de librairies et d'outils pour accélérer le développement d'un projet mais qui a ses propres règles. 
+Comment utiliser Composer ? 
+C'est un gestionnaire de dépendances du monde php. Il permet d'installer, de mettre à jour, de supprimer et d'utiliser facilement des librairies tierces. 
+*/
+Qu'est-ce un test unitaire ? 
+C'est ce qui permet au code d'être largement testé.
+L'avantage est de s'assurer que toute modification du code ne casse pas l'ensemble et permet de limiter les erreurs. Ça donne une aisance dans la programmation. Autrement dit, cela sert 
+à lire toutes les erreurs. 
+Le test est la représentation de la volonté du client. 
+Qu'est-ce qu'un design pattern ? 
+v. vidéos sur les différents design pattern.
+Selon deux profs sur le site Open Class Rooms, le design pattern est une "solution testée et réutilisable appliquée à un problème récurrent".
+C'est une organisation d'un code pour répondre à un problème spécifique.
+    Exemple : le singleton (une classe sera instanciée qu'une seule fois - anti-pattern), le factory (la fabrique), l'observer.
+Il existe 23 DPs qui font partie des canons des DPs, divisés en 3 catégories. 
+Le plus simple DP est le fluent (fluide) qui permet d'appeler plusieurs fonctions à la suite d'un même objet. 
+Le plus répandu est le MVC (Modèle, Vues, Controleurs). 
+L'observer suppose la non-modification de la classe de l'intérieur.
+Le mediator suppose la centralisation des évènements.
+v. l'injection de dépendances
+Principes SOLID :
+- Principe O : Ouvert à l'extension, fermé à la modification : faire évoluer le comportement sans le modifier (se greffer aux évenements, utiliser l'héritage)
+- Principe S : une classe doit n'avoir qu'une seule raison de changer. 
+Le Model permet à intéragir avec les tables de la BDD
+v. les inversions de contrôles : créer une dépendance
+Donner le contrôle à un fichier dont il ne s'agit pas de la mission première. 
+Protocole HTTP et son fonctionnement : 
+Une requête HTTP est une chaine de caractère qui contient la méthode utilisée (GET, POST etc), l'URL, les paramètres (body), les entêtes (informations pour expliquer celles de la méthode, l'URL).
+Le serveur donne une réponse HTTP au navigateur, c'est-à-dire le contenu de la page. C'est une chaîne de caractères contient d'abord un code de statut (200, 201 pour la création, 301 et 302 pour
+ la redirection, 401 à 404 pour l'absence de page, 500 problème).
+Les entêtes sont des paires de clés (location) et valeurs (adresse auquel on s'attend).
+Ce qu'on attend d'une app web, c'est voir les requêtes HTTP, les lire, les interpréter et d'y répondre ce qu'il faut (par le biais de code notamment 302).
+Comment, en PHP, expliquer au navigateur que l'action que je viens de faire donne un code 302 ?
+Comment, en PHP, ajouter une entête ?
+v. https://www.alsacreations.com/astuce/lire/1152-en-tetes-http.html
+   https://www.php.net/manual/fr/function.header.php
+   https://www.php.net/manual/fr/function.http-response-code.php
+   La fonction header
+v. Memex sur Ulule
+Le test first est le test qui consiste à accoucher plusieurs lignes de codes, erreurs ou non, pour structurer et planifier le code. On refactorise. 
+Le test driven development (TDD) : si le code est surligné en rouge, on s'arrête. Pourqu'il ne soit plus considéré comme une erreur, il faut écrire le minimum de code pour qu'il ne soit plus souligné
+ en rouge. l'avantage est de tester de manière optimale les fonctions. 
+Le test doit etre fait en isolation : un test ne doit pas influencer un autre. Cela peut faire pourrir un projet. Dans ce cas, au départ du test, on s'assure que la BDD est vierge.  
+L'expérience du développeur : rendre la lecture agréable pour le développeur (explications des classes, fonctions etc).
+v. expressions régulières : permet de rechercher et d'afficher le résultat (nombre de recurrences par exemple)
+v. Librairie symfony DomCrawler
+   composer require --dev symfony/dom-crawler symfony/css-selector
+v. bosser l'algorithmique (Free Code Camp, Codewars)
+v. Couverture de test (coverage test)
+Statique : la propriété et la méthode statiques ne viennent pas de l'instance de la classe mais de la classe elle-même. 
+Leur utilisation doit être exceptionnelle car elles sont "anti-pattern". 
+Tiredown et setUp() avant chaque test.
+Il existe des objets porteurs de données et d'autres qui sont des machines à traitement. 
+v. https://github.com/liorchamla/formation-solid
+v. Règles de l'oncle Bob (développeur) qui visent à simplifier au maximum son code. Quels sont ses 5 grands principes SOLID ?
+- S :Une classe n'a qu'une seule responsabilité, c'est-à-dire qu'une seule mission. 
+  Il y aurait deux grandes catégories de classes : celles qui portent les données et celles qui sont de véritables outils (services, managers).
+  Combien y aurait-il de potentielles raisons de modifier telle classe ? 
+L'interface consiste à expliquer comment peut-on interagir avec quelque chose. 
+  v. l'image du lecteur. 
+v. Polymorphisme
+- O : La classe est ouverte à toute extension mais fermée à toute modification. Autrement dit, la classe originelle ne doit pas être touchée mais on peut créer d'autres nouvelles classes pour étendre
+ leurs fonctionnalités. 
+V. abstraction 
+L'implémentation consiste à animer quelque chose. 
+- L : Principe de substitution : On peut aussi bien utiliser les méthodes d'une classe enfant de la classe parent. La signature du code doit être respectée.
+Il est conseillé de fortement typer les choses (propriété, fonctions).
+La contravariance des paramètres : dans la fonction d'un enfant, on peut demander plus générique que le parent mais on peut demander plus spécifique d'un parent.
+La covariance des retours : dans les retours, on peut retourner des méthodes plus spécifiques. 
+Si une fonction utilise une méthode de la classe A, elle peut utiliser celle de la classe B sans que cela ne pose de problème.
+- I : Une classe peut implémenter plusieurs interfaces
+Quand une interface en demande trop, nous faisons face à des "fonctions zombies". Aucune classe ne devrait être forcée à implémenter une méthode dont elle n'a pas besoin. 
+- D : les dépendances demandées devraient toujours des abstractions et non pas des implémentations. 
+v. Le principe d'inversion des dépendances 
+Demander le plus possible des objets génériques, des abstractions. 
+BILAN (utile pour les interviews) :
+• La POO est un paradigme de programmation dans lequel les comportements et informations sont organisés sous la forme d'objets cohérents qui communiquent entre eux. 
+  - Appels de méthode : envois de message ;
+  - Héritage : B est un A spécifique ;
+  - Composition : B a besoin / possède d' / un A
+• Qu'est-ce que sont les caractéristiques de la POO ? 
+  - Les classes : un regroupement cohérent de données (propriétés) et de comportements (méthodes) afin de définir un concept ou de représenter quelque chose. 
+                  On peut ensuite instancier les objets qui bénéficieront de ces informations et comportements. 
+  - L'héritage : consiste à créer une classe (enfant) qui bénéficiera de l'ensemble des informations et comportements d'une autre classe (parente). 
+                 On ne peut utiliser que les propriétés et méthodes publiques, autrement dit qui ne sont pas privées ou protégées. 
+                 Une classe enfant peut être considérée comme sa classe parente. 
+                 Le PHP ne supporte pas l'héritage multiple car elle constitue une source de difficultés. 
+  - L'encapsulation : elle nous permet de définir l'accessibilité des données ou des comportements d'une classe (ou objets issus d'une classe) qui seront manipulables sur les instances à qui elles 
+  donneront naissance.
+                  Il existe trois modificateurs qui permettent de préciser l'accessibilité d'une propriété ou d'une méthode. 
+                  - Public : l'information ou le comportement sera manipulable depuis l'extérieur ou l'intérieur de l'instance ;
+                  - Protected : l'information ou le comportement sera manipulable depuis l'intérieur de l'instance ou dans les instances de classes enfants ;
+                  - Private : l'information ou le comportement sera manipulable uniquement depuis l'intérieur de l'instance.
+  - L'abstraction et le polymorphisme : L'abstraction permet de définir des concepts abstraits qui pourront être implémentées par les classes. C'est un concept abstrait qui contient une interface qui
+   consiste en une liste de signatures de données.
+                                        L'avantage de l'abstraction est de permettre d'écrire un code qui n'a pas encore connaissance de l'objet qu'il va utiliser au final lors de l'exécution. 
+                                        L'abstraction permet le polymorphisme.
+  
+• Namespace : cela permet d'éviter les collisions qui peuvent être occasionnés lorsque plusieurs classes ont le même nom. 
+              Une fois que la classe est dans une namespace, le nom de la classe est pleinement qualifié (fully qualified class name).
+• Qu'est-ce une librairie / bibliothèque ? c'est un ensemble d'outils (classes ou/et fonctions) réutilisables dans nos projets dans le but de répondre à un besoin ou à un objectif recherché. 
+• Qu'es-ce qu'un gestionnaire de dépendances ? La dépendance est une librairie / package dont le projet a absolument besoin : il en dépend. 
+                                               Le gestionnaire nous permet d'ajouter, de supprimer, de mettre à jour, et d'utiliser facilement ces dépendances. 
+                                               Pour PHP : Composer
+                                               Pour NodeJS : NPM et Yarn
+                                               Pour .Net : Nugget
+• Les Designs Pattern : ce sont des solutions d'organisation du code pour répondre à des problématiques réccurentes. en 1994, le "Gang of Four" a formalisé 23 patterns à utiliser dans nos projets.
+  v. Design Patterns : Element of Reusable Object-Oriented Software
+  v. https://en.wikipedia.org/wiki/Software_design_pattern
+  v. Christopher Okhravi 
+• Les tests unitaires : c'est un test automatisé dont le but et de s'assurer du bon fonctionnement d'une partie de notre code. 
+  PHPunit pour PHP, Jasmine - Mocha - Jest pour JS.
+  Nos testes suivent souvent les étapes "Given - When - Then", c'est-à-dire Situation initiale - Action - Situation Finale. 
+  Ils permettent ensuite d'évaluer la couverture du code testé (pourcentage du code couvert par les tests - code coverage).
+  v. Les frameworks de mutation (FM) : en PHP, Infection (https://infection.github.io/) prend notre code, fait tourner les codes, va créer des "mutants", c'est-à-dire qu'il va changer quelques détails
+   dans notre code (les = par exemple). Infection permet de rendre plus précis les tests. 
+• Démarche test first (DTF) : cette démarche consiste à écrire un test complet (Given - When - Then) puis on va implémenter le code. 
+• Démarche test driven development (TDD) : elle consiste à écrire le test et, durant la rédaction même du test, on implémente le code à chaque fois que nécessaire. 
+  Quelques règles : - On ne peut pas écrire du code de production si on n'a pas un test défectueux au préalable. Autrement dit, il faut commencer par un test ;
+                    - Dès qu'un test est défectueux, on écrit le MINIMUM possible de code pour le corriger ;
+                    - On n'a pas le droit d'écrire plus de codes de production que ce que les tests me demandent. 
+• Les principes SOLID : ce sont cinq principes pour améliorer la qualité d'un code orienté objet. Popularisés par Robert Martin (Oncle Bob v. ses conférences) dans les années 2000.
+  - S (Single Responsability Principle) : Une classe ne doit avoir qu'une seule responsabilité (mission) ;
+    "Une classe ne devrait avoir qu'une seule raison de changer."
+  
+  - O (Open / Closed Principle : "Open for Extension, Closed for modications") : On ne devrait pas modifier une classe qui est déjà "en place" (utilisée ailleurs, testée). On devrait plutôt créer une
+   nouvelle classe qui hérite en modifiant ce que l'on souhaite modifier.  
+    v. design pattern Decorator
+    "On devrait pouvoir faire évoluer le comportement d'une classe sans avoir à la modifier."
+  - L (Liskov Substitution Principle) : "Quand une fonction utilise un objet de la classe A, elle doit pouvoir utiliser un objet de la classe B qui hérite de A sans problème". 
+    Lorsque l'ont redéfinit une méthode de la classe B, elle doit néanmoins au moins conserver la même signature que dans A. 
+    On a le droit de redéfinir une fonction plus générique mais pas plus spécifique, mais le retour peut être plus spécifique.  
+  - I (Inerface Segregation Principle) : les interfaces qu'on écrit ne devraient contenir que le strict nécessaire et ne pas mélanger les responsabilités afin que les classes qui les implémentent
+   puissent respecter le SRP.
+    "Aucune classe ne devrait être forcée d'implémenter une méthode dont elle n'a pas besoin" 
+  - D (Dependecy Inversion Principle) : "on devrait toujours dépendre d'abstractions plutôt que d'implémentations."
+    Ce principe vise à renforcer le découplage des classes (ou modules) car si une classe dépend d'une abstraction, on peut alors lui soumettre n'importe quelle implémentation à condition qu'elle
+     respecte l'abstraction en question.   
+https://classroom.google.com/u/3/c/MTY4MDcwMTI4MTAy

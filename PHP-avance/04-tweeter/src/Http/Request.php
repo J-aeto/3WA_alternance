@@ -4,31 +4,29 @@ namespace Twitter\Http;
 
 class Request
 {
-    protected string $method;
-    protected array $params = [];
 
-    public function __construct(string $method = "", array $params = [])
-    {
-        $this->method = $method ? $method : ($_SERVER['REQUEST_METHOD'] ?? 'GET');
+  protected string $method;
+  protected array $params;
 
-        $this->params = $params ? $params : $_REQUEST;
-    }
+  public function __construct(string $method="", array $params = [])
+  {
+    $this->method = $method ? $method : ($_SERVER['REQUEST_METHOD'] ?? 'GET');
 
-    public function getMethod(): string
-    {
-        return $this->method;
-    }
+    $this->params = $params ? $params : $_REQUEST;
+  }
 
-    public function isMethod(string $method): Bool
-    {
-        if ($method === $this->getMethod()) {
-            return true;
-        }
-        return false;
-    }
+  public function getMethod(): string
+  {
+    return $this->method;
+  }
 
-    public function get(string $name): ?string
-    {
-        return $this->params[$name] ?? null;
-    }
+  public function isMethod(string $method): bool
+  {
+    return $this->getMethod() === $method;
+  }
+
+  public function get(string $name): ?string
+  {
+    return $this->params[$name] ?? null;
+  }
 }
